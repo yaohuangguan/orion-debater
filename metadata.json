@@ -1,0 +1,5 @@
+{
+  "name": "Orion AI Debater",
+  "description": "An AI-powered debate simulator where two generated personas argue a topic while you moderate or intervene. Showcases multi-perspective reasoning.",
+  "requestFramePermissions": []
+}
