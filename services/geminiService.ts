@@ -1,7 +1,7 @@
 import { GoogleGenAI, Type, Modality } from "@google/genai";
 import { Persona, Message, MatchResult, Language, DebateConfig } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 const SYSTEM_INSTRUCTION_GENERATOR = `
 You are an expert debate organizer and profiler. Your goal is to create two distinct, diametrically opposed personas based on a user-provided topic.
