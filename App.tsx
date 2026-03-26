@@ -209,7 +209,7 @@ function App() {
     }]);
 
     try {
-      const { A, B } = await generatePersonas(newTopic, lang);
+      const { A, B } = await generatePersonas(newTopic, lang, token || undefined);
       setPersonaA(A);
       setPersonaB(B);
       
@@ -268,7 +268,7 @@ function App() {
     const loadingId = `eval-${Date.now()}`;
     setMessages(prev => [...prev, { id: loadingId, senderId: 'System', text: t('analyzing', lang), timestamp: Date.now() }]);
     // Pass config to evaluateDebate to use judge personality
-    const result = await evaluateDebate(topic, messages, lang, config);
+    const result = await evaluateDebate(topic, messages, lang, config, token || undefined);
     setMatchResult(result);
     setMessages(prev => prev.filter(m => m.id !== loadingId));
   };
@@ -345,13 +345,13 @@ function App() {
         const modifierToUse = nextTurnModifier;
         if (nextTurnModifier) setNextTurnModifier(null);
 
-        const text = await generateTurn(topic, currentPersona, opponentPersona, messages, lang, config, modifierToUse || undefined);
+        const text = await generateTurn(topic, currentPersona, opponentPersona, messages, lang, config, modifierToUse || undefined, token || undefined);
         
         // Trigger TTS if not muted
         if (!isMuted) {
            // Side A gets 'Puck', Side B gets 'Kore' (Example distinction)
            const voice = turn === 'A' ? 'Puck' : 'Kore';
-           generateSpeech(text, voice).then(audioData => {
+           generateSpeech(text, voice, token || undefined).then(audioData => {
              if (audioData) {
                audioQueueRef.current.push(audioData);
              }
@@ -366,7 +366,7 @@ function App() {
         }));
         
         if (Math.random() < 0.2) {
-           const reaction = await generateAudienceComment(topic, text, lang);
+           const reaction = await generateAudienceComment(topic, text, lang, token || undefined);
            if (reaction) {
              setMessages(prev => [...prev, { id: `aud-${Date.now()}`, senderId: 'Audience', text: reaction, timestamp: Date.now() }]);
              if (Math.random() > 0.5) {
