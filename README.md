@@ -1,20 +1,58 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Orion AI Debater 🎙️
 
-# Run and deploy your AI Studio app
+Orion AI Debater is a dynamic, multi-modal debate simulator powered by Gemini. Experience intense clashes of ideas with distinct AI personas, real-time speech synthesis, and live audience reactions.
 
-This contains everything you need to run your app locally.
+## 🚀 Features
 
-View your app in AI Studio: https://ai.studio/apps/drive/1YqZlelM6HLqT_2O3kjDwvgBIB4t2IzNR
+- **Dynamic Persona Generation**: Instantly create two diametrically opposed personas based on any topic.
+- **Real-time Debate Loop**: Watch as AI debaters engage in a sharp, witty, and persuasive exchange of ideas.
+- **Multimodal Experience**: 
+  - **Text**: Beautifully formatted chat interface.
+  - **Speech**: Live voice synthesis for both participants (Powered by Gemini TTS).
+- **Interactive Elements**:
+  - **Live Voting**: Influence the debate by voting for Side A or Side B.
+  - **Audience Reactions**: Dynamic commentary and reactions from a virtual crowd.
+- **Judge Evaluation**: Get a professional breakdown of the debate with logic, evidence, and novelty scores.
+- **Wildcard Mode**: Inject random constraints (e.g., "Speak like a pirate") to keep debaters on their toes.
 
-## Run Locally
+## 🛠️ Architecture
 
-**Prerequisites:**  Node.js
+The project has been migrated to a secure backend architecture:
+- **Frontend**: React + Vite + Tailwind CSS.
+- **Backend**: Express.js (Node.js) handling all AI processing and API key management.
+- **Authentication**: JWT-based user authentication.
 
+## 🏃 Getting Started
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/yaohuangguan/orion-debater.git
+    cd orion-debater
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run the application**:
+    ```bash
+    npm run dev
+    ```
+
+4.  **Open your browser**:
+    Navigate to `http://localhost:5173`.
+
+## 🔒 Authentication
+
+This application requires user login for extended use. Guests have a limited number of turns before being prompted to sign in or register.
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
